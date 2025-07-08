@@ -33,19 +33,19 @@
 		CA6E3B732B90F8CE00D6B3F1 = {
 			isa = PBXGroup;
 			children = (
-				CA6E3B7D2B90F8CE00D6B3F1 /* NewsWidget */,
+				CA6E3B7D2B90F8CE00D6B3F1 /* SinaNews24 */,
 				66FAD62AC298A908CA642E1D /* SinaNews24.icon */,
 				7E85E1F02E1BA50800F115A4 /* SinaNews24.app */,
 			);
 			sourceTree = "<group>";
 		};
-		CA6E3B7D2B90F8CE00D6B3F1 /* NewsWidget */ = {
+		CA6E3B7D2B90F8CE00D6B3F1 /* SinaNews24 */ = {
 			isa = PBXGroup;
 			children = (
 				CA6E3B7E2B90F8CE00D6B3F1 /* NewsWidgetApp.swift */,
 				14107D1970E250594FDF44FA /* ContentView.swift */,
 			);
-			path = NewsWidget;
+			path = SinaNews24;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

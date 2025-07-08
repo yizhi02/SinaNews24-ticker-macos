@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="icon-readme.png" alt="SinaNews24" width="128" height="128" />
+  <img src="https://files.catbox.moe/pmo6n8.png" alt="SinaNews24" width="128" height="128" />
   <h1>SinaNews24 Ticker</h1>
   <p>A macOS menu bar ticker app for Chinese financial news from Sina Finance</p>
 </div>
