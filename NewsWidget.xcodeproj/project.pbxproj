@@ -15,7 +15,7 @@
 /* Begin PBXFileReference section */
 		14107D1970E250594FDF44FA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		66FAD62AC298A908CA642E1D /* SinaNews24.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = SinaNews24.icon; sourceTree = "<group>"; };
-		7E85E1F02E1BA50800F115A4 /* NewsWidget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsWidget.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E85E1F02E1BA50800F115A4 /* SinaNews24.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SinaNews24.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA6E3B7E2B90F8CE00D6B3F1 /* NewsWidgetApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsWidgetApp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -35,7 +35,7 @@
 			children = (
 				CA6E3B7D2B90F8CE00D6B3F1 /* NewsWidget */,
 				66FAD62AC298A908CA642E1D /* SinaNews24.icon */,
-				7E85E1F02E1BA50800F115A4 /* NewsWidget.app */,
+				7E85E1F02E1BA50800F115A4 /* SinaNews24.app */,
 			);
 			sourceTree = "<group>";
 		};
@@ -256,7 +256,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = NewsWidget;
+				INFOPLIST_KEY_CFBundleDisplayName = SinaNews24;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.news";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -264,8 +264,8 @@
 					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.newswidget.app;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sinanews24.app;
+				PRODUCT_NAME = SinaNews24;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};
@@ -282,7 +282,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = NewsWidget;
+				INFOPLIST_KEY_CFBundleDisplayName = SinaNews24;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.news";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -290,8 +290,8 @@
 					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.newswidget.app;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sinanews24.app;
+				PRODUCT_NAME = SinaNews24;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};

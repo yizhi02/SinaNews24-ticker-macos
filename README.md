@@ -6,11 +6,11 @@
 
 ## Features
 
-- 📰 Live financial news ticker in menu bar
-- 🔊 Chinese text-to-speech support
-- 🔔 Keyword-based notifications
-- ✨ Modern glass UI design
-- ⚡ Lightning-fast updates
+-  Live financial news ticker in menu bar
+-  Chinese text-to-speech support
+-  Keyword-based notifications
+-  Modern glass UI design
+-  Lightning-fast updates
 
 ## Installation
 

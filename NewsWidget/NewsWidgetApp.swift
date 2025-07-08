@@ -12,6 +12,13 @@ struct NewsWidgetApp: App {
             EmptyView()
         }
     }
+    
+    init() {
+        // Hide app from dock - delay to ensure NSApp is ready
+        DispatchQueue.main.async {
+            NSApp.setActivationPolicy(.accessory)
+        }
+    }
 }
 
 class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate {
@@ -24,6 +31,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate {
     var keywordSoundName = "Glass"
     var monitoredKeywords: [String] = []
     var refreshInterval: Double = 30.0
+    var startupMenuItem: NSMenuItem?
     
     func applicationDidFinishLaunching(_ notification: Notification) {
         // Request notification permissions
@@ -58,7 +66,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate {
         }
         
         setupMenuBar()
-        print("✅ NewsWidget started with Direct Sina API integration")
+        print("✅ SinaNews24 started with Direct Sina API integration")
     }
     
     func setupMenuBar() {
@@ -68,7 +76,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate {
             // Use simple programmatic icon for menu bar
             button.image = createDirectAPINewsIcon()
             button.imagePosition = .imageOnly
-            button.toolTip = "NewsWidget - Direct API (Click for latest news)"
+            button.toolTip = "SinaNews24 - Direct API (Click for latest news)"
             
             button.action = #selector(handleStatusItemClick)
             button.target = self
@@ -137,13 +145,17 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate {
         
         menu.addItem(NSMenuItem.separator())
         
-        let quitItem = NSMenuItem(title: "Quit NewsWidget", action: #selector(quitApp), keyEquivalent: "q")
+        // Create start at login menu item
+        let enabled = isStartAtLoginEnabled()
+        let startupItem = NSMenuItem(title: "Start at Login: \(enabled ? "On" : "Off")", action: #selector(toggleStartAtLogin), keyEquivalent: "")
+        startupItem.target = self
+        menu.addItem(startupItem)
+        
+        let quitItem = NSMenuItem(title: "Quit SinaNews24", action: #selector(quitApp), keyEquivalent: "q")
         quitItem.target = self
         menu.addItem(quitItem)
         
-        statusItem?.menu = menu
-        statusItem?.button?.performClick(nil)
-        statusItem?.menu = nil
+        statusItem?.popUpMenu(menu)
     }
     
     @objc func togglePopover() {
@@ -800,6 +812,45 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSPopoverDelegate {
     }
     
 
+    @objc func toggleStartAtLogin() {
+        // Use simple UserDefaults tracking instead of AppleScript
+        let currentState = UserDefaults.standard.bool(forKey: "StartAtLogin")
+        let newState = !currentState
+        
+        let appName = "SinaNews24"
+        
+        if newState {
+            // Enable start at login
+            let script = """
+            tell application "System Events"
+                make login item at end with properties {path:"\(Bundle.main.bundlePath)", hidden:false, name:"\(appName)"}
+            end tell
+            """
+            if let appleScript = NSAppleScript(source: script) {
+                appleScript.executeAndReturnError(nil)
+            }
+        } else {
+            // Disable start at login
+            let script = """
+            tell application "System Events"
+                delete login item "\(appName)"
+            end tell
+            """
+            if let appleScript = NSAppleScript(source: script) {
+                appleScript.executeAndReturnError(nil)
+            }
+        }
+        
+        // Save the new state
+        UserDefaults.standard.set(newState, forKey: "StartAtLogin")
+        
+        print("✅ Start at login toggled: \(newState)")
+    }
+    
+    func isStartAtLoginEnabled() -> Bool {
+        return UserDefaults.standard.bool(forKey: "StartAtLogin")
+    }
+    
     @objc func quitApp() {
         NSApplication.shared.terminate(nil)
     }
